@@ -5,19 +5,22 @@ import 'react-h5-audio-player/lib/styles.css';
 export default class ItemToGuess extends Component {
 
   render() {
-    let { name } = this.props;
+    let { name, isGuessed, audio, image } = this.props;
 
-    if (!name) {
+    if (!isGuessed) {
       name = '***';
+      image = "bird.jpg";
     }
 
     return (
       <div className="itemToGuess__wrapper">
-        <div className="itemToGuess__img"></div>
+        <div className="itemToGuess__img">
+          <img src={image}/>
+        </div>
         <div className="itemToGuess__block">
           <h2>{name}</h2>
           <AudioPlayer 
-            src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"/>
+            src={audio}/>
         </div>
     </div>
     )

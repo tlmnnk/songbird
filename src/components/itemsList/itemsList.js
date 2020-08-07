@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Spinner from '../spinner/spinner';
 
 export default class ItemsList extends Component {
 
@@ -13,14 +14,17 @@ export default class ItemsList extends Component {
   }
 
   render() {
-
     const { itemList } = this.props;
+
+    if(!itemList) {
+      return <Spinner />
+    }
 
     const items = this.generateList(itemList)
 
     return (
       <ul className="itemList">
-        {items}
+      {items}
       </ul>
     );
   }
