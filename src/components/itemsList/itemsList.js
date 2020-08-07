@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import Spinner from '../spinner/spinner';
 
+import './itemList.scss';
+
 export default class ItemsList extends Component {
+
+  onItemClick = (id) => {
+    
+
+  }
 
   generateList(itemList) {
     return itemList.map(({id, name}) => {
       return (
         <li className="itemList__item"
             key={id}
-            onClick={() => this.props.onItemSelected(id)}>{name}</li>
+            onClick={(e) => this.props.onItemSelected(id, e)}>
+          <span className="itemList__item-highlight"></span>
+              {name}
+          </li>
       )
     });
   }

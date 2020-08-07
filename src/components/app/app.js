@@ -20,6 +20,7 @@ export default class App extends Component {
     isGameFinished: false,
     items: myBirdsData,
     itemList: null,
+    isColorItems: true,
   }
 
   componentDidMount() {
@@ -35,13 +36,24 @@ export default class App extends Component {
     });
   }
 
-  onItemClick = (id) => {
+  onItemClick = (id, e) => {
     const clickedItem = this.state.itemList.find((item) => item.id === id);
     this.setState({ clickedItem });
+
+    if(this.state.isGuessed) {
+      return;
+    }
+
+    if (this.state.itemId === id){
+      this.setState({ isGuessed: true });
+      e.target.classList.add('correct');
+    } else {
+      e.target.classList.add('incorrect');
+    }
   }
 
   render() {
-    const { score, itemList, itemName, audio, image, isGuessed, clickedItem } = this.state;
+    const { itemId, score, itemList, itemName, audio, image, isGuessed, clickedItem } = this.state;
     return (
       <>
       <Header score={score}/>
@@ -52,7 +64,8 @@ export default class App extends Component {
         isGuessed={isGuessed}/>
       <div className="itemsList__block">
         <ItemsList itemList={itemList}
-                    onItemSelected={this.onItemClick}/>
+                    itemId={itemId}
+                  onItemSelected={this.onItemClick}/>
         <ItemDesc clickedItem={clickedItem}/>
       </div>
       <NextBtn />
