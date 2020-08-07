@@ -35,8 +35,13 @@ export default class App extends Component {
     });
   }
 
+  onItemClick = (id) => {
+    const clickedItem = this.state.itemList.find((item) => item.id === id);
+    this.setState({ clickedItem });
+  }
+
   render() {
-    const { score, itemList, itemName, audio, image, isGuessed } = this.state;
+    const { score, itemList, itemName, audio, image, isGuessed, clickedItem } = this.state;
     return (
       <>
       <Header score={score}/>
@@ -46,8 +51,9 @@ export default class App extends Component {
         image={image}
         isGuessed={isGuessed}/>
       <div className="itemsList__block">
-        <ItemsList itemList={itemList}/>
-        <ItemDesc />
+        <ItemsList itemList={itemList}
+                    onItemSelected={this.onItemClick}/>
+        <ItemDesc clickedItem={clickedItem}/>
       </div>
       <NextBtn />
       </>

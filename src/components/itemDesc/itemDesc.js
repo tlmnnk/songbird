@@ -5,7 +5,14 @@ export default class ItemDesc extends Component {
 
   render() {
 
-    const { name, species, description } = this.props;
+    if(!this.props.clickedItem) {
+      return (
+          <div className="itemDesc">Послушайте плеер.
+          Выберите птицу из списка</div>
+      )
+    }
+
+    const { name, species, audio, description } = this.props.clickedItem;
 
     return (
       <div className="itemDesc">
@@ -17,7 +24,8 @@ export default class ItemDesc extends Component {
             <p className="itemDesc__species">{species}</p>
             <br></br>
             <AudioPlayer 
-              src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"/>
+              src={audio}
+              autoPlayAfterSrcChange={false}/>
         </div>
         <div className="itemDesc__text">{description}</div>
       </div>
