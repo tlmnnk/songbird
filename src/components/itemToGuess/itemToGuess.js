@@ -10,6 +10,8 @@ export default class ItemToGuess extends Component {
     if (!isGuessed) {
       name = '***';
       image = "bird.jpg";
+    } else {
+      audio = 'win.mp3';
     }
 
     return (
@@ -19,7 +21,8 @@ export default class ItemToGuess extends Component {
         </div>
         <div className="itemToGuess__block">
           <h2>{name}</h2>
-          <AudioPlayer 
+          <AudioPlayer
+            id='player'
             src={audio}
             autoPlayAfterSrcChange={false}/>
         </div>

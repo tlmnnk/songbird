@@ -56,6 +56,7 @@ export default class App extends Component {
       });
 
       e.target.classList.add('correct');
+      // stop audio play on correct answer
       new Audio('win.mp3').play();
     } else {
       e.target.classList.add('incorrect');
