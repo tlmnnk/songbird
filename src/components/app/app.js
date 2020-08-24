@@ -17,6 +17,7 @@ export default class App extends Component {
     itemName: null,
     isGuessed: false,
     score: 0,
+    scoreTemp: 5,
     isGameFinished: false,
     items: myBirdsData,
     itemList: null,
@@ -40,16 +41,24 @@ export default class App extends Component {
     const clickedItem = this.state.itemList.find((item) => item.id === id);
     this.setState({ clickedItem });
 
-    if(this.state.isGuessed) {
+    let { isGuessed, scoreTemp, itemId, score } = this.state;
+
+    if(isGuessed) {
       return;
     }
 
-    if (this.state.itemId === id){
-      this.setState({ isGuessed: true });
+    if (itemId === id){
+      score += scoreTemp;
+      this.setState({ 
+        isGuessed: true,
+        scoreTemp: 5,
+        score: score });
       // play win sound
       e.target.classList.add('correct');
     } else {
       e.target.classList.add('incorrect');
+      scoreTemp -= 1;
+      this.setState({ scoreTemp });
       // play lose sound
     }
   }
