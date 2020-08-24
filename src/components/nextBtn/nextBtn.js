@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 export default class NextBtn extends Component {
 
   render() {
-    return <button className="nextBtn">Next Level</button>
+    const { onNextLevel } = this.props; 
+    return <button className="nextBtn"
+                   onClick={onNextLevel} >Next Level</button>
   }
 }
