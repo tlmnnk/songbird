@@ -20,7 +20,8 @@ export default class ItemToGuess extends Component {
         <div className="itemToGuess__block">
           <h2>{name}</h2>
           <AudioPlayer 
-            src={audio}/>
+            src={audio}
+            autoPlayAfterSrcChange={false}/>
         </div>
     </div>
     )

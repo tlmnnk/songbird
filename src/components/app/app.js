@@ -52,14 +52,16 @@ export default class App extends Component {
       this.setState({ 
         isGuessed: true,
         scoreTemp: 5,
-        score: score });
-      // play win sound
+        score: score 
+      });
+
       e.target.classList.add('correct');
+      new Audio('win.mp3').play();
     } else {
       e.target.classList.add('incorrect');
       scoreTemp -= 1;
       this.setState({ scoreTemp });
-      // play lose sound
+      new Audio('error.mp3').play();
     }
   }
 
