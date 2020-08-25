@@ -1,0 +1,19 @@
+.itemToGuess__wrapper {
+  margin-top: 15px;
+}
+
+.itemToGuess__block {
+  margin-left: 15px;
+  width: 100%;
+
+  & h2 {
+    line-height: 1.5rem;
+  }
+}
+
+.itemToGuess__img {
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  transition: .1s;
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './header.scss';
+
 export default class Header extends Component {
 
   componentDidUpdate() {
@@ -9,15 +11,15 @@ export default class Header extends Component {
   render() {
     const { score } = this.props;
     return (
-      <div className="header">
-        <div className="header__block">
-          <div className="logo">logo
-            <img src="" alt="" srcSet=""/>
+      <div className="header flex-colomn">
+        <div className="header__block flex-between">
+          <div className="logo">
+            <img src="logo.svg" className="logo__img" alt="logo" srcSet=""/>
           </div>
           <div className="header__score">Score: <span>{score}</span></div>
         </div>
-        <ul className="birdtypes">
-          <li className="birdtypes__item">Разминка</li>
+        <ul className="birdtypes flex-between">
+          <li className="birdtypes__item birdtypes__item--active">Разминка</li>
           <li className="birdtypes__item">Воробьиные</li>
           <li className="birdtypes__item">Лесные птицы</li>
           <li className="birdtypes__item">Певчие Птицы</li>

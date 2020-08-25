@@ -1,0 +1,36 @@
+.header {
+  margin-top: 20px;
+  &__block {
+    width: 100%;
+  }
+}
+.logo {
+  &__img {
+    width: 200px;
+    height: 50px;
+
+  }
+}
+.birdtypes {
+  padding-left: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &__item {
+    padding: 5px;
+    flex: auto;
+    text-align: center;
+    color: #fff;
+    background-color: #743ad5;
+
+    &--active {
+      background-color: #9e75e6;
+    }
+  }
+}
+
+.header__score {
+  letter-spacing: 3px;
+}

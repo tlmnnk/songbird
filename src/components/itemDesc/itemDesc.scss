@@ -1,0 +1,27 @@
+.itemDesc {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
+  flex-basis: 46%;
+  background: #150e1a;
+  border: 1px solid #39223f;
+  border-radius: 5px;
+}
+
+.itemDesc__block {
+  flex-wrap: wrap;
+}
+
+.itemDesc__img {
+  flex-basis: 48%;
+  & img {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+  }
+}
+
+.itemDesc__section {
+  margin-left: 10px;
+  flex-basis: 48%;
+}

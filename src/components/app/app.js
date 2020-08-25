@@ -119,13 +119,14 @@ export default class App extends Component {
         audio={audio}
         image={image}
         isGuessed={isGuessed}/>
-      <div className="itemsList__block">
+      <div className="itemsList__block flex-between">
         <ItemsList itemList={itemList}
                     itemId={itemId}
                   onItemSelected={this.onItemClick}/>
         <ItemDesc clickedItem={clickedItem}/>
       </div>
-      <NextBtn onNextLevel={ this.nextLevelClick }/>
+      <NextBtn onNextLevel={ this.nextLevelClick }
+               isGuessed={isGuessed}/>
       </>
     );
   }

@@ -1,4 +1,38 @@
+.itemList {
+  padding-left: 0;
+  width: 100%;
+  height: 100%;
+  flex-basis: 46%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #150e1a;
+  border: 1px solid #39223f;
+  border-radius: 5px;
+}
+
+.itemList__item {
+  padding-top: 15px;
+  width: 100%;
+  border: 1px solid #39223f;
+  cursor: pointer;
+  
+  flex-basis: 100%;
+  
+
+  &:hover {
+    background: #32223d;
+  }
+}
+
+.itemsList__block {
+  height: 350px;
+  margin-top: 30px;
+}
+
 .itemList__item-highlight {
+  margin-left: 15px;
   margin-right: 10px;
   width: 27px;
   height: 10px;
