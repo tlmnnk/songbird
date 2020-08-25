@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
+import quizQuestions from '../../data/quizQuestions';
 
 import './header.scss';
 
 export default class Header extends Component {
 
-  componentDidUpdate() {
-
-  }
+  generateQuizQuestions(id) {
+    return quizQuestions.map((item, i) => {
+      let classes = 'birdtypes__item ';
+      if (id === i) {
+        classes += 'birdtypes__item--active';
+      }
+      return (
+        <li className={classes}
+            key={i}>
+            {item}
+          </li>
+      )
+    });
+  } 
 
   render() {
-    const { score } = this.props;
+    const { score, id } = this.props;
+
+    const items = this.generateQuizQuestions(id);
     return (
       <div className="header flex-colomn">
         <div className="header__block flex-between">
@@ -19,12 +33,7 @@ export default class Header extends Component {
           <div className="header__score">Score: <span>{score}</span></div>
         </div>
         <ul className="birdtypes flex-between">
-          <li className="birdtypes__item birdtypes__item--active">Разминка</li>
-          <li className="birdtypes__item">Воробьиные</li>
-          <li className="birdtypes__item">Лесные птицы</li>
-          <li className="birdtypes__item">Певчие Птицы</li>
-          <li className="birdtypes__item">Хищные птицы</li>
-          <li className="birdtypes__item">Морские птицы</li>
+          {items}
         </ul>
       </div>
     );

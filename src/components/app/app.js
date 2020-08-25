@@ -100,7 +100,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { itemId, score, itemList, itemName, audio, image, isGuessed, clickedItem, isGameFinished } = this.state;
+    const { itemId, score, itemList, itemName, audio, image, isGuessed, clickedItem, isGameFinished, currentItemsSet } = this.state;
     
     if (isGameFinished) {
       console.log('game finished');
@@ -113,7 +113,8 @@ export default class App extends Component {
     
     return (
       <>
-      <Header score={score}/>
+      <Header score={score}
+              id={currentItemsSet}/>
       <ItemToGuess 
         name={itemName}
         audio={audio}
