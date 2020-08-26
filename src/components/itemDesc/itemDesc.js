@@ -25,9 +25,7 @@ export default class ItemDesc extends Component {
           </div>
           <div className="itemDesc__section">
             <h4 className="itemDesc__name">{name}</h4>
-            <br></br>
             <p className="itemDesc__species">{species}</p>
-            <br></br>
             <AudioPlayer 
               src={audio}
               autoPlayAfterSrcChange={false}/>

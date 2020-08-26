@@ -4,6 +4,7 @@ import ItemToGuess from '../itemToGuess/';
 import ItemsList from '../itemsList/';
 import ItemDesc from '../itemDesc';
 import NextBtn from '../nextBtn';
+import Results from '../results';
 import myBirdsData from '../../data/myBirdsData';
 import { arrayShuffle, getRandomIntInRange } from '../../helpers';
 
@@ -25,16 +26,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const { currentItemsSet, items } = this.state;
-    const shuffeledItemsSet = arrayShuffle(items[currentItemsSet]);
-    const itemToGuess = getRandomIntInRange(0, shuffeledItemsSet.length - 1);
-    this.setState({
-      itemList: shuffeledItemsSet,
-      itemName: shuffeledItemsSet[itemToGuess].name,
-      itemId: shuffeledItemsSet[itemToGuess].id,
-      audio: shuffeledItemsSet[itemToGuess].audio,
-      image: shuffeledItemsSet[itemToGuess].image,
-    });
+    this.newRound();
   }
 
   onItemClick = (id, e) => {
@@ -56,7 +48,6 @@ export default class App extends Component {
       });
 
       e.target.classList.add('correct');
-      // stop audio play on correct answer
       new Audio('win.mp3').play();
     } else {
       e.target.classList.add('incorrect');
@@ -72,41 +63,60 @@ export default class App extends Component {
     });
   }
 
+  newRound(currentItemsSetArg) {
+    let { currentItemsSet, items, isGameFinished, score } = this.state;
+
+    if (currentItemsSetArg) {
+      currentItemsSet = currentItemsSetArg;
+    }
+
+    const shuffeledItemsSet = arrayShuffle(items[currentItemsSet]);
+    const itemToGuess = getRandomIntInRange(0, shuffeledItemsSet.length - 1);
+    this.setState({
+      currentItemsSet: currentItemsSet,
+      isGuessed: false,
+      isGameFinished: false,
+      score: isGameFinished ? 0 : score,
+      itemList: shuffeledItemsSet,
+      itemName: shuffeledItemsSet[itemToGuess].name,
+      itemId: shuffeledItemsSet[itemToGuess].id,
+      audio: shuffeledItemsSet[itemToGuess].audio,
+      image: shuffeledItemsSet[itemToGuess].image,
+    });
+  }
+
   nextLevelClick = () => {
     let { isGuessed, currentItemsSet, items } = this.state;
     if (isGuessed) {
       currentItemsSet += 1;
       if (currentItemsSet < items.length) {
-        const shuffeledItemsSet = arrayShuffle(items[currentItemsSet]);
-        console.log(shuffeledItemsSet);
-        const itemToGuess = getRandomIntInRange(0, shuffeledItemsSet.length - 1);
-        this.setState({
-          currentItemsSet: currentItemsSet,
-          isGuessed: false,
-          itemList: shuffeledItemsSet,
-          itemName: shuffeledItemsSet[itemToGuess].name,
-          itemId: shuffeledItemsSet[itemToGuess].id,
-          audio: shuffeledItemsSet[itemToGuess].audio,
-          image: shuffeledItemsSet[itemToGuess].image,
-        });
+        this.newRound(currentItemsSet)
         this.removeItemHighlight();
       }
       else {
         this.setState({
           isGameFinished: true,
+          currentItemsSet: 0,
         })
       }
     } 
   }
 
+  playAgain = () => {
+    console.log('hello');
+    this.newRound();
+}
+
   render() {
     const { itemId, score, itemList, itemName, audio, image, isGuessed, clickedItem, isGameFinished, currentItemsSet } = this.state;
     
     if (isGameFinished) {
-      console.log('game finished');
       return (
-      <>
-      <h1>The game is over</h1>
+        <>
+      <Header score={score}
+              id={currentItemsSet}/>
+      <Results score={score}
+               playagain={this.playAgain}/>
       </>
       );
   }
