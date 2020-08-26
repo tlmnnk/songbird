@@ -46,11 +46,23 @@ export default class App extends Component {
         scoreTemp: 5,
         score: score 
       });
-
+      if (e.target.classList.contains('itemList__item-highlight')) {
+        e.target.parentNode.classList.add('correct');
+        new Audio('win.mp3').play();
+        return;
+      }
       e.target.classList.add('correct');
       new Audio('win.mp3').play();
     } else {
-      e.target.classList.add('incorrect');
+      if(e.target.classList.contains('incorrect') || e.target.parentNode.classList.contains('incorrect')) {
+        return;
+      }
+      if (e.target.classList.contains('itemList__item-highlight')) {
+        e.target.parentNode.classList.add('incorrect');
+      } else {
+        e.target.classList.add('incorrect');
+      }
+      
       scoreTemp -= 1;
       this.setState({ scoreTemp });
       new Audio('error.mp3').play();
