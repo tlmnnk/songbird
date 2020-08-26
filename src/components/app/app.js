@@ -86,6 +86,7 @@ export default class App extends Component {
     const itemToGuess = getRandomIntInRange(0, shuffeledItemsSet.length - 1);
     this.setState({
       currentItemsSet: currentItemsSet,
+      clickedItem: null,
       isGuessed: false,
       isGameFinished: false,
       score: isGameFinished ? 0 : score,
