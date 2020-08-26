@@ -1,3 +1,5 @@
+@import '../../sass/mixins';
+
 .itemList {
   padding-left: 0;
   width: 100%;
@@ -10,6 +12,13 @@
   background: #150e1a;
   border: 1px solid #39223f;
   border-radius: 5px;
+
+  @include media-laptop {
+    flex-basis: 25%;
+  }
+  @include media-tablet {
+    flex-basis: 100%;
+  }
 }
 
 .itemList__item {
@@ -19,7 +28,11 @@
   cursor: pointer;
   
   flex-basis: 100%;
-  
+
+  @include media-tablet {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
   &:hover {
     background: #32223d;
@@ -29,6 +42,12 @@
 .itemsList__block {
   height: 350px;
   margin-top: 30px;
+
+  @include media-tablet {
+    height: 100%;
+    flex-direction: column;
+  }
+
 }
 
 .itemList__item-highlight {

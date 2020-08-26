@@ -1,5 +1,11 @@
+@import '../../sass/mixins';
+
 .itemToGuess__wrapper {
   margin-top: 15px;
+
+  @include media-mobile {
+    flex-direction: column;
+  }
 }
 
 .itemToGuess__block {
@@ -8,6 +14,10 @@
 
   & h2 {
     line-height: 1.5rem;
+
+    @include media-mobile {
+      text-align: center;
+    }
   }
 }
 

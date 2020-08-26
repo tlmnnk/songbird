@@ -18,7 +18,7 @@ export default class ItemToGuess extends Component {
 
     return (
       <div className="itemToGuess__wrapper flex-between">
-          <img className="itemToGuess__img" src={image}/>
+          <img className="itemToGuess__img" src={image} alt={name}/>
         <div className="itemToGuess__block">
           <h2>{name}</h2>
           <AudioPlayer

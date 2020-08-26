@@ -1,3 +1,5 @@
+@import '../../sass/mixins';
+
 .itemDesc {
   padding-left: 10px;
   padding-right: 10px;
@@ -6,6 +8,14 @@
   background: #150e1a;
   border: 1px solid #39223f;
   border-radius: 5px;
+}
+
+.itemDesc__pre {
+  @include media-mobile {
+    margin-top: 10px;
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .itemDesc__block {
@@ -24,4 +34,14 @@
 .itemDesc__section {
   margin-left: 10px;
   flex-basis: 48%;
+
+  @include media-mobile {
+    width: 100%;
+  }
+}
+
+.itemDesc__name, .itemDesc__species {
+  @include media-mobile {
+    text-align: center;
+  }
 }

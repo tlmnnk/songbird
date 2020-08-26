@@ -19,9 +19,9 @@ export default class ItemDesc extends Component {
     return (
       <div className="itemDesc">
         <div className="itemDesc__block flex-between">
-          <div className="flex-between">
+          <div className="itemDesc__pre flex-between">
           <div className="itemDesc__img">
-            <img src={image}/>
+            <img src={image} alt={name}/>
           </div>
           <div className="itemDesc__section">
             <h4 className="itemDesc__name">{name}</h4>

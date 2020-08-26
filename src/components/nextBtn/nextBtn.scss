@@ -1,3 +1,5 @@
+@import '../../sass/mixins';
+
 .nextBtn {
   height: 40px;
   margin-top: 30px;
@@ -11,6 +13,10 @@
   outline: none;
   letter-spacing: 3px;
   transition: .2s;
+  
+  @include media-tablet {
+    height: 41px;
+  }
 }
 
 .nextBtn--active {
