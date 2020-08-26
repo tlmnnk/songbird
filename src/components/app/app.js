@@ -95,6 +95,7 @@ export default class App extends Component {
       audio: shuffeledItemsSet[itemToGuess].audio,
       image: shuffeledItemsSet[itemToGuess].image,
     });
+    console.log('Правильный ответ', shuffeledItemsSet[itemToGuess].name);
   }
 
   nextLevelClick = () => {
@@ -115,7 +116,6 @@ export default class App extends Component {
   }
 
   playAgain = () => {
-    console.log('hello');
     this.newRound();
 }
 
