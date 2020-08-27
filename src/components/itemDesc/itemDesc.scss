@@ -11,8 +11,8 @@
 }
 
 .itemDesc__pre {
+  margin-top: 10px;
   @include media-mobile {
-    margin-top: 10px;
     width: 100%;
     flex-direction: column;
   }
@@ -37,6 +37,15 @@
 
   @include media-mobile {
     width: 100%;
+  }
+}
+
+.itemDesc__name {
+  font-size: 1.2rem;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
   }
 }
 

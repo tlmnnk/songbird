@@ -14,7 +14,13 @@ export default class ItemDesc extends Component {
       )
     }
 
-    const { name, species, audio, description, image } = this.props.clickedItem;
+    const { name, species, audio, description, image, link } = this.props.clickedItem;
+
+    let nameLink = <h4 className="itemDesc__name">{name}</h4>;
+
+    if(link) {
+      nameLink = <a href={link} target="_blank" className="itemDesc__name">{name}</a>;
+    }
 
     return (
       <div className="itemDesc">
@@ -24,7 +30,7 @@ export default class ItemDesc extends Component {
             <img src={image} alt={name}/>
           </div>
           <div className="itemDesc__section">
-            <h4 className="itemDesc__name">{name}</h4>
+            {nameLink}
             <p className="itemDesc__species">{species}</p>
             <AudioPlayer 
               src={audio}
