@@ -1,0 +1,69 @@
+@import '../../sass/mixins';
+
+.itemList {
+  padding-left: 0;
+  width: 100%;
+  height: 100%;
+  flex-basis: 46%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #150e1a;
+  border: 1px solid #39223f;
+  border-radius: 5px;
+
+  @include media-laptop {
+    flex-basis: 25%;
+  }
+  @include media-tablet {
+    flex-basis: 100%;
+  }
+}
+
+.itemList__item {
+  padding-top: 15px;
+  width: 100%;
+  border: 1px solid #39223f;
+  cursor: pointer;
+  
+  flex-basis: 100%;
+
+  @include media-tablet {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &:hover {
+    background: #32223d;
+  }
+}
+
+.itemsList__block {
+  height: 350px;
+  margin-top: 30px;
+
+  @include media-tablet {
+    height: 100%;
+    flex-direction: column;
+  }
+
+}
+
+.itemList__item-highlight {
+  margin-left: 15px;
+  margin-right: 10px;
+  width: 27px;
+  height: 10px;
+
+  display: inline-block;
+  border-radius: 18%;
+  transition: .1s;
+  background-color: #4e4c4c;
+}
+.correct .itemList__item-highlight {
+  background-color: #47eb39;
+}
+.incorrect .itemList__item-highlight {
+  background-color: #a30808;
+}

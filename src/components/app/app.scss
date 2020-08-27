@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  flex: auto;
+  flex-direction: column;
+  max-width: 900px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.header {
+  display: flex;
+}
+
+li {
+  list-style: none;
+}

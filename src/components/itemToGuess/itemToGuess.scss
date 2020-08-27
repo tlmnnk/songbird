@@ -1,0 +1,30 @@
+@import '../../sass/mixins';
+
+.itemToGuess__wrapper {
+  margin-top: 15px;
+
+  @include media-mobile {
+    flex-direction: column;
+  }
+}
+
+.itemToGuess__block {
+  margin-left: 15px;
+  width: 100%;
+
+  & h2 {
+    line-height: 1.5rem;
+
+    @include media-mobile {
+      text-align: center;
+    }
+  }
+}
+
+.itemToGuess__img {
+  width: 200px;
+  min-width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  transition: .1s;
+}

@@ -1,0 +1,61 @@
+@import '../../sass/mixins';
+
+.itemDesc {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
+  flex-basis: 46%;
+  background: #150e1a;
+  border: 1px solid #39223f;
+  border-radius: 5px;
+}
+
+.itemDesc__pre {
+  margin-top: 10px;
+  @include media-mobile {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.itemDesc__block {
+  flex-wrap: wrap;
+}
+
+.itemDesc__img {
+  flex-basis: 48%;
+  & img {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+  }
+}
+
+.itemDesc__section {
+  margin-left: 10px;
+  flex-basis: 48%;
+
+  @include media-mobile {
+    width: 100%;
+  }
+}
+
+.itemDesc__name {
+  font-size: 1.2rem;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.itemDesc__name, .itemDesc__species {
+  @include media-mobile {
+    text-align: center;
+  }
+}
+
+.itemDesc__text {
+  margin-top: 15px;
+  font-family: 'Alata', sans-serif;
+}
