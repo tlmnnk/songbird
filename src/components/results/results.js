@@ -11,7 +11,7 @@ export default class Results extends Component {
     let congrats = `Вы прошли викторину и набрали ${score} из ${MAX_SCORE} возможных баллов`;
 
     if (score === MAX_SCORE) {
-      congrats = `Абсолютная победа! Вы набрали максимальное колечество баллов! (${score})`;
+      congrats = `Абсолютная победа! Вы набрали максимальное количество баллов! (${score})`;
     }
 
     return (
