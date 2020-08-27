@@ -19,7 +19,7 @@ export default class ItemDesc extends Component {
     let nameLink = <h4 className="itemDesc__name">{name}</h4>;
 
     if(link) {
-      nameLink = <a href={link} target="_blank" className="itemDesc__name">{name}</a>;
+      nameLink = <a href={link} target="_blank" rel="noopener noreferrer" className="itemDesc__name">{name}</a>;
     }
 
     return (

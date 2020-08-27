@@ -32,7 +32,7 @@ const gamesData = [
       name: 'Battle City',
       species: `Shoot 'em up`,
       description: 'Battle City is a multi-directional shooter video game for the Family Computer produced and published in 1985 by Namco.',
-      image: 'http://www.vizzed.com/videogames/nes/screenshot/Battle%20City-1.png',
+      image: 'https://www.vizzed.com/videogames/nes/screenshot/Battle%20City-1.png',
       audio: 'https://fi.zophar.net/soundfiles/nintendo-nes-nsf/battle-city-1985/1%20-%20Track%201.mp3',
       link: 'https://www.zophar.net/music/nintendo-nes-nsf/battle-city',
     },
