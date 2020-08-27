@@ -5,7 +5,7 @@ import ItemsList from '../itemsList/';
 import ItemDesc from '../itemDesc';
 import NextBtn from '../nextBtn';
 import Results from '../results';
-import myBirdsData from '../../data/myBirdsData';
+import gamesData from '../../data/gamesData';
 import { arrayShuffle, getRandomIntInRange } from '../../helpers';
 
 import './app.scss';
@@ -20,7 +20,7 @@ export default class App extends Component {
     score: 0,
     scoreTemp: 5,
     isGameFinished: false,
-    items: myBirdsData,
+    items: gamesData,
     itemList: null,
     isColorItems: true,
   }
