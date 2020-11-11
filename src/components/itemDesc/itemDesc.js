@@ -9,8 +9,8 @@ export default class ItemDesc extends Component {
 
     if(!this.props.clickedItem) {
       return (
-          <div className="itemDesc">Послушайте плеер.
-          Выберите игру из списка</div>
+          <div className="itemDesc">Listen to player.
+          Pick a game out of the list</div>
       )
     }
 
