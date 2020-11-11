@@ -8,18 +8,18 @@ export default class Results extends Component {
   render() {
     const { score, playagain } = this.props;
 
-    let congrats = `Вы прошли викторину и набрали ${score} из ${MAX_SCORE} возможных баллов`;
+    let congrats = `Your score ${score} out of ${MAX_SCORE} possible points`;
 
     if (score === MAX_SCORE) {
-      congrats = `Абсолютная победа! Вы набрали максимальное количество баллов! (${score})`;
+      congrats = `Congratulation! You got a perfect score! (${score})`;
     }
 
     return (
         <div className="results flex-colomn">
-          <h2 className="results__header">Поздравляем!</h2>
+          <h2 className="results__header">Well done!</h2>
           <p className="results__text">{congrats}</p>
           <button className="results__btn"
-                  onClick={() => playagain()}>Попробовать еще раз</button>
+                  onClick={() => playagain()}>Try again</button>
         </div>
     )
   }
